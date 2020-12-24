@@ -1,0 +1,133 @@
+---
+title: "Bootstrap: Permanova Summarize Results"
+output: html_document
+---
+
+
+#### Define Libraries
+```{r echo=TRUE, message=FALSE, warning=FALSE, tidy=TRUE}
+library("stringr")
+library("dplyr")
+library("reshape2")
+library("vegan")
+library(tidyr)
+library(magrittr)
+library(ggplot2)
+```
+
+#### Define Path
+```{r tidy=TRUE}
+dir.wrk <- str_replace(getwd(), "/scripts", "")
+dir.data <- file.path(dir.wrk, "data/data_permutation_withReplacement")
+dir.output <- file.path(dir.wrk, "output")
+```
+
+#### Collect Permanova Results
+```{r tidy=TRUE}
+nperm <- 1000
+#i <- 1
+
+list.df <- list()
+for(i in 1:nperm){
+     # DEFINE FILE ---
+     file.dat <- file.path(dir.data, paste("stats_permanova_permmute_",i,".tsv", sep=""))
+     
+     # LOAD DATA ---
+     dat <- read.delim(file.dat, header=TRUE, stringsAsFactors=FALSE, row.names=1)
+     
+     # RESHAPE DATA ---
+     df <- reshape2::melt(as.matrix(dat))
+     colnames(df) <- c("Feature","Category","Value")
+     
+     df$Feature <- as.character(df$Feature)
+     df$Category <- as.character(df$Category)
+     
+     # STORE DATA ---
+     list.df[[i]] <- df
+}
+
+
+### MERGE DATA ---
+df <- do.call(cbind.data.frame,  lapply(list.df, function(x) x[,3] ) )
+colnames(df) <- paste("Value", c(1:ncol(df)), sep="_")
+
+### AFFREGATE DATA ---
+dm <- cbind(list.df[[1]][,1:2], df)
+
+#dm[,1:10]
+
+### WRITE OUTPUT ---
+file.output <- file.path(dir.output, "stats_anovatbl_permanova_permmute_results_withReplacement.tsv")
+write.table(dm, file.output, sep="\t", row.names=FALSE, col.names=TRUE, quote=FALSE)     
+
+file.output <- file.path(dir.output, "stats_anovatbl_permanova_permmute_results_withReplacement.csv")
+write.table(dm, file.output, sep=",", row.names=FALSE, col.names=TRUE, quote=FALSE)  
+```
+
+#### Summary statistics of bootstrapped R2 and P values
+```{r tidy=TRUE}
+dat_b <- dm %>% filter(Category %in% c("R2", "Pr..F."))
+dat_bt <- as.data.frame(t(as.matrix(dat_b)))
+
+## Summary statistics of Bootstrapped R2 values
+dat_R<-dat_bt[-c(1,2), c(1:4)]
+rownames(dat_R) <- c()
+dat_R <- dat_R %>% rename(IncomeGroup = V1, Ethnicity = V2, EducationLevel = V3,  GeoRegion = V4)
+dat_Rl <- gather(dat_R, Factor, R2)
+dat_Rl$R2 <- as.character(dat_Rl$R2)
+dat_Rl$R2 <- as.numeric(dat_Rl$R2)
+
+summary_R2 <- dat_Rl %>%
+  group_by(Factor) %>%
+  summarise(mean=mean(R2), std_error= sd(R2)/sqrt(length(R2)))
+summary_R2
+
+## Summary statistics of Bootstrapped p values
+dat_p<-dat_bt[-c(1,2), c(7:10)]
+rownames(dat_p) <- c()
+dat_p <- dat_p %>% rename(IncomeGroup = V7, Ethnicity = V8, EducationLevel = V9,  GeoRegion = V10)
+dat_pl <- gather(dat_p, Factor, p)
+dat_pl$p <- as.character(dat_pl$p)
+dat_pl$p <- as.numeric(dat_pl$p)
+
+## Mean and SD of bootstrapped p-values by factor
+summary_p <- dat_pl %>%
+  group_by(Factor) %>%
+  summarise(mean=mean(p), sd(p))
+summary_p
+```
+
+#### Histogram of R2
+```{r fig.height = 4, fig.width = 4, fig.align = "center"}
+## Histogram of Bootstrapped R2 values
+
+hist_R2 <- ggplot(dat_Rl, aes(x=R2))+
+  geom_histogram(aes(y=..density..), position="identity", alpha=0.6, colour="black", fill="white")+
+  geom_density(alpha=.1, fill="#FF6666")+
+  ##facet_wrap(~ Factor, nrow = 2)+
+  facet_grid(Factor ~ ., scales = "free")+
+  geom_vline(data=summary_R2, aes(xintercept=mean), linetype="dashed", size= 0.5, colour="blue")+
+  theme_classic()
+
+hist_R2
+file.plot<-"hist_R2.pdf"
+pdf(file.plot, width=4, height=4)
+hist_R2
+dev.off()
+
+## Histogram for bootstrapped R2 Values (Ethnicity)
+dat_R_eth <- dat_Rl %>% filter(Factor=="Ethnicity")
+hist_E <- ggplot(dat_R_eth, aes(x=R2))+
+  geom_histogram(aes(y=..density..), colour="black", fill="white")+
+  geom_density(alpha=.1, fill="#FF6666")+
+  geom_vline(aes(xintercept=0.393), linetype="dashed", size=0.5, colour="blue")+
+  geom_vline(aes(xintercept=0.391), linetype="dashed", size=0.5, colour="red")+
+theme_classic()
+
+hist_E
+file.plot<-"hist_E.pdf"
+pdf(file.plot, width=4, height=4)
+hist_E
+dev.off()
+```
+

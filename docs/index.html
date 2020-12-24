@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Group segmentation and heterogeneity in the choice of cooking fuels in post-earthquake Nepal</title>
+
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="01_01_data_preprocess.html">Pre-process</a>
+</li>
+<li>
+  <a href="02_02_maps_plot.html">Maps</a>
+</li>
+<li>
+  <a href="03_01_baseline_data.html">Baseline Data</a>
+</li>
+<li>
+  <a href="04_01_ordination_analysis.html">Ordination</a>
+</li>
+<li>
+  <a href="05_01_alpha_diversity.html">Alpha Diversity</a>
+</li>
+<li>
+  <a href="06_01_annova_tests.html">Annova</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Group segmentation and heterogeneity in the choice of cooking fuels in post-earthquake Nepal</h1>
+<h4 class="author"><strong>Ratna K. Shrestha</strong></h4>
+<address class="author_afil">
+Vancouver School of Economics, University of British Columbia<br><h4 class="author"><strong>Raunak Shrestha</strong></h4>
+<address class="author_afil">
+Department of Radiation Oncology, University of California San Francisco<br>
+</div>
+
+
+<div id="abstract" class="section level3">
+<h3>Abstract</h3>
+<blockquote>
+<p>Segmenting population into subgroups with higher intergroup, but lower intragroup, heterogeneity can be useful in enhancing the effectiveness of many socio-economic policy interventions; yet it has received little attention in promoting clean cooking. Here, we use PERMANOVA, a distance-based multivariate analysis, to identify the factor that captures the highest intergroup heterogeneity in the choice of cooking fuels. Applying this approach to the post-earthquake data on 747,137 households from Nepal, we find that ethnicity explains 39.12% of variation in fuel choice, followed by income (26.30%), education (12.62%), and location (4.05%). This finding indicates that ethnicity, rather than income or other factors, as a basis of policy interventions may be more effective in promoting clean cooking. We also find that, among the ethnic groups in Nepal, the most marginalized Chepang/Thami community exhibits the lowest intragroup diversity (Shannon index = 0.101) while Newars the highest (0.667). This information on intra-ethnic diversity in fuel choice can have important policy implications for reducing ethnic gap in clean cooking.</p>
+</blockquote>
+</div>
+<div id="dataset" class="section level3">
+<h3>Dataset</h3>
+<p>Following the 7.8 Mw Gorkha Earthquake in Nepal on April 25, 2015, the Kathmandu Living Labs in collaboration with the National Planning Commission (the Government of Nepal), carried out the largest household survey ever done in Nepal using mobile technology. Although the primary objective of this survey was to assess damages inflicted by the quake and identify beneficiaries eligible for government’s housing reconstruction grants, the data contain many other kinds of valuable socio-economic information, including the types of fuel used by households for cooking and lighting from 11 of the most earthquake-affected districts of Nepal, excluding the Kathmandu valley.</p>
+<p>The data for all 11 districts were downloaded from the <strong>2015 Nepal Earthquake: Open Data Portal</strong> (<a href="http://eq2015.npc.gov.np/" class="uri">http://eq2015.npc.gov.np/</a>). <br/><br/></p>
+</div>
+<div id="analysis" class="section level3">
+<h3>Analysis</h3>
+<table>
+<thead>
+<tr class="header">
+<th>S.No.</th>
+<th>Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.00</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/" target="_blank">Home</a></td>
+</tr>
+<tr class="even">
+<td>1.01</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/01_01_data_preprocess.html" target="_blank">Data Pre-processing</a></td>
+</tr>
+<tr class="odd">
+<td>2.01</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/02_01_maps_data_preparation.html" target="_blank">Data Preparation to Generate Choropleth Maps</a></td>
+</tr>
+<tr class="even">
+<td>2.02</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/02_02_maps_plot.html" target="_blank">Generate Choropleth Maps</a></td>
+</tr>
+<tr class="odd">
+<td>3.01</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/03_01_baseline_data.html" target="_blank">Baseline Data</a></td>
+</tr>
+<tr class="even">
+<td>4.01</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/04_01_ordination_analysis.html" target="_blank">Ordination Analysis</a></td>
+</tr>
+<tr class="odd">
+<td>5.01</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/05_01_alpha_diversity.html" target="_blank">Alpha Diversity</a></td>
+</tr>
+<tr class="even">
+<td>6.01</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/06_01_annova_tests.html" target="_blank">Annova Tests</a></td>
+</tr>
+<tr class="odd">
+<td>6.02</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/06_02_annova_tests_factor_control_income.html" target="_blank">Annova Tests with Factor Control: IncomeGroup</a></td>
+</tr>
+<tr class="even">
+<td>6.03</td>
+<td><a href="https://raunakms.github.io/diversity_cooking_fuel/06_03_annova_tests_factor_control_georegion.html" target="_blank">Annova Tests with Factor Control: GeoRegion</a></td>
+</tr>
+</tbody>
+</table>
+<p><br/><br/></p>
+<div id="code-availability" class="section level4">
+<h4>Code availability</h4>
+<p>R-codes used for data analysis is available at <a href="https://raunakms.github.io/diversity_cooking_fuel">https://raunakms.github.io/diversity_cooking_fuel</a> and can be downloaded from <a href="https://github.com/raunakms/diversity_cooking_fuel">https://github.com/raunakms/diversity_cooking_fuel</a> <br/><br/></p>
+</div>
+<div id="citation" class="section level4">
+<h4>Citation</h4>
+<p>Shrestha, Ratna K. and Shrestha, Raunak. <strong>Group segmentation and heterogeneity in the choice of cooking fuels in post-earthquake Nepal</strong>. 2020. (<em>submitted</em>) <a href="https://arxiv.org/abs/2005.09616">https://arxiv.org/abs/2005.09616</a> <br/> See details <a href="http://raunakms.github.io/publication/2019_cooking_fuel/">here</a> <br/><br/></p>
+</div>
+<div id="corresponding-author" class="section level4">
+<h4>Corresponding author</h4>
+<p>Ratna K. Shrestha, PhD <br/> Vancouver School of Economics, <br/> University of British Columbia, <br/> 6000 Iona Drive, Vancouver, BC, Canada V6T 1L4 <br/> E-mail: ratna [dot] shrestha [at] ubc.ca<br/></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
