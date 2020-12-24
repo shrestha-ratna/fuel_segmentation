@@ -1,4 +1,4 @@
-# Intergroup Heterogeneity in Cooking Fuel Choice and Group Segregation: the Case of Post-Earthquake Nepal Nepal
+# Intergroup Heterogeneity in Cooking Fuel Choice and Group Segregation: Evidence from Post-Earthquake Nepal
 
 **Ratna K. Shrestha** (Vancouver School of Economics, University of British Columbia)<br/>
 **Raunak Shrestha** (Department of Radiation Oncology, University of California San Francisco)<br/>
