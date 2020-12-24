@@ -35,7 +35,7 @@ R-codes used for data analysis is available at [https://raunakms.github.io/diver
 <br/><br/>
 
 #### Citation
-Shrestha, Ratna K. and Shrestha, Raunak. **Group segmentation and heterogeneity in the choice of cooking fuels in post-earthquake Nepal**. 2020. (*submitted*) [https://arxiv.org/abs/2005.09616](https://arxiv.org/abs/2005.09616)
+Shrestha, Ratna K. and Shrestha, Raunak. **Intergroup Heterogeneity in Cooking Fuel Choice and Group Segregation: Evidence from Post-Earthquake Nepal**. 2020. (*submitted*) [https://arxiv.org/abs/2005.09616](https://arxiv.org/abs/2005.09616)
 <br/><br/>
 
 #### Corresponding author
